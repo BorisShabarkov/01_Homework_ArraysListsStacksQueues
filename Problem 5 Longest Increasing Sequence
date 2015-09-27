@@ -1,0 +1,56 @@
+using System;
+
+
+class LongestIncreasingSequence
+{
+    static void Main()
+    {
+        string inputString = Console.ReadLine();
+        string[] items = inputString.Split(' ');
+        int[] ourArray = new int[items.Length];
+        for (int i = 0; i < ourArray.Length; i++)
+        {
+            ourArray[i] = int.Parse(items[i]);
+        }
+
+
+        int counter = 1;
+        int lengthMax = 1;
+        int last = 0;
+
+        Console.Write(ourArray[0] + " ");
+        for (int i = 1; i < items.Length; i++)
+        {
+            if (ourArray[i] > ourArray[i - 1])
+            {
+                counter++;
+                Console.Write(ourArray[i] + " ");
+            }
+            else
+            {
+                counter = 1;
+                Console.WriteLine();
+                Console.Write(ourArray[i] + " ");
+            }
+
+            if (counter > lengthMax)
+            {
+                lengthMax = counter;
+                last = i;
+            }
+
+
+        }
+        Console.WriteLine();
+
+        Console.Write("Longest: ");
+        for (int j = last - lengthMax + 1; j <= last; j++)
+        {
+            Console.Write(ourArray[j] + " ");
+        }
+        
+        
+        Console.WriteLine();
+    }
+}
+
