@@ -1,0 +1,23 @@
+using System;
+
+
+class SortArrayOfNumbers
+{
+    static void Main()
+    {
+        string inputString = Console.ReadLine();
+        string[] items = inputString.Split(' ');
+        int[] ourArray = new int[items.Length];
+        for (int i = 0; i < ourArray.Length; i++)
+        {
+            ourArray[i] = int.Parse(items[i]);
+        }
+        Array.Sort(ourArray);
+        for (int i = 0; i < ourArray.Length; i++)
+        {
+            Console.Write("{0} ",ourArray[i]);
+        }
+        Console.WriteLine();
+    }
+}
+
