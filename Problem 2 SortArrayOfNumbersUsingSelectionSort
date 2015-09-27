@@ -1,0 +1,35 @@
+using System;
+
+
+class SortArrayOfNumbersUsingSelectionSort
+{
+    static void Main()
+    {
+        string inputString = Console.ReadLine();
+        string[] items = inputString.Split(' ');
+        int[] ourArray = new int[items.Length];
+        for (int i = 0; i < ourArray.Length; i++)
+        {
+            ourArray[i] = int.Parse(items[i]);
+        }
+
+        for (int i = 0; i < ourArray.Length - 1; i++)
+        {
+            for (int j = i + 1; j < ourArray.Length; j++)
+            {
+                if (ourArray[i] > ourArray[j])
+                {
+                    int temp = ourArray[i];
+                    ourArray[i] = ourArray[j];
+                    ourArray[j] = temp;
+                }
+            }
+        }
+
+        for (int i = 0; i < ourArray.Length; i++)
+        {
+            Console.Write("{0} ", ourArray[i]);
+        }
+        Console.WriteLine();
+    }
+}
